@@ -17,7 +17,8 @@ class Player:
     Methods:
         - play(): called by the game when the player must play
 
-    !! player.order must be set by the game !!
+    Warnings:
+        - player.order must be set by the game
     """
 
     def __init__(self, game, boardAR):

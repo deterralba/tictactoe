@@ -21,15 +21,14 @@ class BoardState:
         self.reset()
 
     def reset(self):
-        """ Reset self.state, to [[0, 0, 0], [0, 0, 0], [0, 0, 0]] """
+        """ Reset self.state for a new game: to [[0, 0, 0], [0, 0, 0], [0, 0, 0]] """
         self.state.clear()
-        # generate [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
-        self.state = [[0 for i in range(3)] for j in range(3)]
+        self.state = [[0 for i in range(3)] for j in range(3)]  # generate [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
     def __repr__(self):
         """
         Returns a string of 3 lines (plus one above and one under) representing the board,
-        with X and O instead of 1 and
+        with X and O instead of 1 and 2
         """
         grid = ""
         for i in range(3):
@@ -65,7 +64,6 @@ class BoardState:
 
         # old optimised method
         # return bool([True for i in range(3) if self.state[i] != other.state[i]])
-
         return self.state == other.state
 
     def __hash__(self):

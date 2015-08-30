@@ -22,6 +22,7 @@ testGCfg.interactionLevel.showEveryMovement = False
 testGCfg.interactionLevel.showPlayerDebug = False
 
 testGCfg.numberOfGames = 10000
+testGCfg.exchangePlayers = True
 
 testG.boardAR = testB
 testG.player1 = testP1
@@ -37,7 +38,7 @@ print("len dico", len(testHAL1.memories.pastGames))
 print("nbOfIG", testHAL1.nbOfIntelligentGame)
 
 from Tools import Plot
-# Plot.plotTotalRatio(testG.player1)
+Plot.plotTotalRatio(testG.player1)
 Plot.plotMovingRatio(testG.player1, window=500)
 # print(testG.states[0])
 # print(testG.states)

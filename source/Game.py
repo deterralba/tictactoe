@@ -11,12 +11,18 @@ class Game:
         - states (list of BoardState) the chronological list of BoardStates()
         - turn (int) the present turn of the game, initialised at 0,
             first turn must be 1 (modified in start() )
+        - movements (list of Movement) the list of all the Movements made
+        - states (list of BoardStates) the list of the different BoardState of the game
         - winner (Player or None) defined by board.thereIsAWinner(), stays None is there is none
         - interactionLevel (InteractionLevel) used to define the level of printed outputs
 
     Methods:
         - start(): starts a game and plays until it is over,
             updates "turn" and checks is the game is over after each movement
+        - reset(): reset the game (turn, movements, sates, winner, next and last player
+
+    Warnings:
+        - movements and states must be updated by boardAR.play()
     """
 
     def __init__(self):
@@ -32,13 +38,7 @@ class Game:
         self.interactionLevel = InteractionLevel()
 
     def start(self):
-        # initialisation/reset of the game
-        self.player1.order = 1
-        self.player2.order = 2
-        self.turn = 0
-        self.movements = []
-        self.states = []
-        self.boardAR.reset()
+        self.reset()
 
         self.nextPlayer = self.player1
         self.lastPlayer = self.player2
@@ -68,4 +68,15 @@ class Game:
             else:
                 print("Even")
             print("== Game is over ==")
+
+    def reset(self):
+        """ Reset the game for a new game """
+        self.player1.order = 1
+        self.player2.order = 2
+        self.turn = 0
+        self.movements = []
+        self.states = []
+        self.boardAR.reset()
+
+
 

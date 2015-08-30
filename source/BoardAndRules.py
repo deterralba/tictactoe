@@ -4,7 +4,7 @@ from BoardState import BoardState
 class BoardAndRules:
     """
     Represents the rules of the game,
-    saves the present state of the game and check that the players follow the rules
+    saves the present state of the game and checks that the players follow the rules
 
     Attributes:
         - game (Game) reference to the game
@@ -13,10 +13,10 @@ class BoardAndRules:
     Methods:
         - play(mvt): called by the players, writes "player.order" (1 or 2) on the board
             where the player plays if the place is empty (0)
-            Return True if the movement was legal, else do nothing and return False
+            Returns True if the movement was legal, else do nothing and returns False
         - extractLines(): returns a list of all the lines that can be completed
-        - thereIsAWinner(): returns True if there is one and sets game.winner
-        - getBoard(): returns a copy of self.boardS
+        - thereIsAWinner(): returns True if there is a winner and sets game.winner
+        - getBoard(): returns a copy of self.boardS, used to store the different state of a game
         - reset(): resets the board for a new game
     """
 
@@ -33,7 +33,8 @@ class BoardAndRules:
         """
         Verifies that the movement of the player follows the rules and writes it on the board.
 
-        Also sets movement.turn and registers the movement in the list game.step
+        Also sets movement.turn and registers the movement in the list game.movements
+        Registers boardS in game.states
 
         :param mvt: (Movement) the Movement the player wants to play
         :return: (bool) True if the movement is possible, else False
@@ -50,22 +51,26 @@ class BoardAndRules:
 
     def extractLines(self):
         """
-        Extracts the 8 lines than can be completed (3 vertical, 3 horizontal, 2 diagonal).
+        Extracts the 8 lines than can be completed (3 vertical, 3 horizontal, 2 diagonal: 11-33 and 31-13).
 
-        :return: a list of the lines
+        :return: the list of lines
         """
         board = self.boardS.state
         lines = []
+
         for i in range(3):
             line_i = board[i]
             lines.append(line_i)
+
         for i in range(3):
             column_i = [board[j][i] for j in range(3)]
             lines.append(column_i)
+
         diagonal_1 = [board[i][i] for i in range(3)]
         diagonal_2 = [board[2 - i][i] for i in range(3)]
         lines.append(diagonal_1)
         lines.append(diagonal_2)
+
         return lines
 
     def thereIsAWinner(self):
@@ -83,7 +88,7 @@ class BoardAndRules:
 
     def getBoard(self):
         """
-        :return: a copy of the self.board
+        :return: a copy of the self.board that will not be updated when a new movement is made
         """
         return self.boardS.copy()
 

@@ -5,8 +5,8 @@ import random
 class LinePlayer(Player):
     """
     Subclass of Player, first move is random, then check if there is an unoccupied line with 2
-        cases already checked by itself and check the last case, (if there is none do the same
-        with a free line where there is already one case checked)
+    cases already checked by itself and check the last case, (if there is none do the same
+    with a free line where there is already one case checked)
     """
     def __init__(self, game, boardAR):
         super().__init__(game, boardAR)
