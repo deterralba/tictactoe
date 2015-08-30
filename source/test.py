@@ -1,3 +1,4 @@
+
 t = [[1, 2, 3, 4], [10, 20, 30]]
 print([t[i] for i in range(len(t))])
 
@@ -41,3 +42,9 @@ print(len([[2,1], [2,1], [2,1], 1]))
 print("//", 16//4)
 
 print(3 in [[3], 4])
+
+def testFun():
+    return bool([True for i in range(3) if i==7])
+
+print(testFun())
+print([[1, 2, 2], [1, 3]] == [[1, 2, 2], [1, 2]])

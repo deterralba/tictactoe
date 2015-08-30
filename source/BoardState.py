@@ -14,17 +14,23 @@ class BoardState:
         - len() return the turn
         - __eq__() compare two boardState
     """
+
     def __init__(self):
+        """ Initialises the board: creates empty state [] and calls self.reset() """
         self.state = []
-        for i in range(3):
-            self.state.append([0, 0, 0])
+        self.reset()
 
     def reset(self):
-        self.state = []
-        for i in range(3):
-            self.state.append([0, 0, 0])
+        """ Reset self.state, to [[0, 0, 0], [0, 0, 0], [0, 0, 0]] """
+        self.state.clear()
+        # generate [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        self.state = [[0 for i in range(3)] for j in range(3)]
 
     def __repr__(self):
+        """
+        Returns a string of 3 lines (plus one above and one under) representing the board,
+        with X and O instead of 1 and
+        """
         grid = ""
         for i in range(3):
             grid += "\n\t {} | {} | {} ".format(self.state[i][0],
@@ -37,25 +43,36 @@ class BoardState:
         return grid
 
     def __len__(self):
+        """ Returns the turn of the board (counts the 0 and deduces the turn T = 9 - nb(0) )"""
         count0 = 0
         for i in range(len(self.state)):
             count0 += self.state[i].count(0)
         return 9 - count0
 
     def copy(self):
+        """ Creates a new object BoardState identical and returns it (used for storage) """
         copyBS = BoardState()
-        for i in range(3):
-            for j in range(3):
-                copyBS.state[i][j] = self.state[i][j]
+        copyBS.state = [[self.state[i][j] for j in range(3)] for i in range(3)]
         return copyBS
 
     def __eq__(self, other):
-        for i in range(3):
-            if self.state[i] != other.state[i]:
-                return False
-        return True
+        """ Tests the equality of self.state and other.state """
+        # old method
+        # for i in range(3):
+        #     if self.state[i] != other.state[i]:
+        #         return False
+        # return True
+
+        # old optimised method
+        # return bool([True for i in range(3) if self.state[i] != other.state[i]])
+
+        return self.state == other.state
 
     def __hash__(self):
+        """
+        Returns a integer created by the concatenation of all the cases
+        Ex: [[0, 1, 2], [3, 4, 5], [6, 7, 8]] returns 12345678 (NB: first 0 is gone !)
+        """
         strResult = ""
         for i in range(3):
             for j in range(3):
@@ -71,12 +88,11 @@ if __name__ == '__main__':
     b.state[1][1]= 1
     c.state[1][1]= 1
 
-
     d.state[0][0]= 1
     d.state[0][1]= 2
     d.state[1][2]= 1
-    print(len(b))
-    print([b, b])
+    # print(len(b))
+    # print([b, b])
     print(b == c, b != c)
     l = [b, c]
     print(c in l)
@@ -85,5 +101,5 @@ if __name__ == '__main__':
     dd["k"] = "lolk"
     print(d.__hash__())
     # dd[b] = "BS B"
-    print(d)
+    print(d.copy().__hash__())
 
