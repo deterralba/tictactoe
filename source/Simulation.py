@@ -16,9 +16,7 @@ class Simulation:
         for i in range(self.numberOfGames):
             self.game.start()
             if self.exchangePlayers:
-                temp_player = self.game.player1
-                self.game.player1 = self.game.player2
-                self.game.player2 = temp_player
+                self.game.player1, self.game.player2 = self.game.player2, self.game.player1
         self.elapsedTime = time.time() - start_time
         if self.interactionLevel.showElapsedTime:
             print("Elapsed time: {:.0f}ms".format(1000*self.elapsedTime))

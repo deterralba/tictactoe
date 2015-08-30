@@ -52,9 +52,7 @@ class Game:
                 input("Press Enter")
 
             # next and last player are switched (via temp_player)
-            temp_player = self.nextPlayer
-            self.nextPlayer = self.lastPlayer
-            self.lastPlayer = temp_player
+            self.nextPlayer, self.lastPlayer = self.lastPlayer, self.nextPlayer
 
         # end of the game, we saves the stats of the players
         self.player1.endOfGame()

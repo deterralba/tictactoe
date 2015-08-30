@@ -26,7 +26,7 @@ testGCfg.exchangePlayers = True
 
 testG.boardAR = testB
 testG.player1 = testP1
-testG.player2 = testHAL1
+testG.player2 = testP2
 # testHAL1.openTraining("trainingHAL1.pickle")
 
 testGCfg.start()
@@ -39,7 +39,7 @@ print("nbOfIG", testHAL1.nbOfIntelligentGame)
 
 from Tools import Plot
 Plot.plotTotalRatio(testG.player1)
-Plot.plotMovingRatio(testG.player1, window=500)
+# Plot.plotMovingRatio(testG.player1, window=500)
 # print(testG.states[0])
 # print(testG.states)
 
