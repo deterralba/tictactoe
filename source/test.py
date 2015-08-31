@@ -48,3 +48,6 @@ def testFun():
 
 print(testFun())
 print([[1, 2, 2], [1, 3]] == [[1, 2, 2], [1, 2]])
+
+l = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+print([i for subi in l for i in subi])

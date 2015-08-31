@@ -1,4 +1,3 @@
-from Game import Game
 from BoardState import BoardState
 
 class BoardAndRules:

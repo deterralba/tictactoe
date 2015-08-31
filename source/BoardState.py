@@ -56,14 +56,6 @@ class BoardState:
 
     def __eq__(self, other):
         """ Tests the equality of self.state and other.state """
-        # old method
-        # for i in range(3):
-        #     if self.state[i] != other.state[i]:
-        #         return False
-        # return True
-
-        # old optimised method
-        # return bool([True for i in range(3) if self.state[i] != other.state[i]])
         return self.state == other.state
 
     def __hash__(self):
@@ -71,10 +63,15 @@ class BoardState:
         Returns a integer created by the concatenation of all the cases
         Ex: [[0, 1, 2], [3, 4, 5], [6, 7, 8]] returns 12345678 (NB: first 0 is gone !)
         """
-        strResult = ""
-        for i in range(3):
-            for j in range(3):
-                strResult += "{}".format(self.state[i][j])
+        # flatten the list and convert item to string, ex: [[0,1,2], [3,4,5]] -> ['0','1','2','3','4','5']
+        flat_list = [str(i) for sublist in self.state for i in sublist]
+        strResult = "".join(flat_list)  # concatenate the list into a string, ex: [1, 2, 3, 4] -> "1234"
+
+        # --- old equivalent code ---
+        # strResult = ""
+        # for i in range(3):
+        #     for j in range(3):
+        #         strResult += "{}".format(self.state[i][j])
         return int(strResult)
 
 

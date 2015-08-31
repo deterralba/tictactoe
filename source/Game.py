@@ -38,6 +38,18 @@ class Game:
         self.interactionLevel = InteractionLevel()
 
     def start(self):
+        """
+        Plays a game until it is over, i.e. there is a winner or the game is even
+
+        How it is working:
+        ------------------
+        As long as the game is not over (ie self.turn < 9 and thereIsAWinner == False) there is a loop where
+            - turn is incremented,
+            - nextPlayer.play() is called and then next and last player are inverted,
+            - if wanted, the board is printed.
+        When it is over, endOfGame() of player1 and 2 is called - if wanted, the result is printed.
+        """
+        # prepares all the instances (board etc) for a new game
         self.reset()
 
         self.nextPlayer = self.player1
