@@ -47,9 +47,10 @@ class Game:
         while self.turn < 9 and not self.boardAR.thereIsAWinner():
             self.turn += 1
             self.nextPlayer.play()
-            if self.interactionLevel.showEveryMovement:
+            if self.interactionLevel.showEveryMovement or self.interactionLevel.showEveryMovementAndWait:
                 print(self.boardAR)
-                input("Press Enter")
+                if self.interactionLevel.showEveryMovementAndWait:
+                    input("Press Enter")
 
             # next and last player are switched (via temp_player)
             self.nextPlayer, self.lastPlayer = self.lastPlayer, self.nextPlayer
