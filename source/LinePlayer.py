@@ -19,13 +19,13 @@ class LinePlayer(Player):
             self.randomPlay()
         else:
             lines = self.boardAR.extractLines()
-            casesForLine = [[[0, 0], [0, 1], [0, 2]], # line 1
+            casesForLine = [[[0, 0], [0, 1], [0, 2]],  # line 1
                             [[1, 0], [1, 1], [1, 2]],
                             [[2, 0], [2, 1], [2, 2]],
-                            [[0, 0], [1, 0], [2, 0]], # column 1
+                            [[0, 0], [1, 0], [2, 0]],  # column 1
                             [[0, 1], [1, 1], [2, 1]],
                             [[0, 2], [1, 2], [2, 2]],
-                            [[0, 0], [1, 1], [2, 2]], # diagonal up left - down rigth
+                            [[0, 0], [1, 1], [2, 2]],  # diagonal up left - down rigth
                             [[2, 0], [1, 1], [0, 2]]]
             for i in range(8):
                 countSelf = lines[i].count(self.order)

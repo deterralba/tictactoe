@@ -18,35 +18,34 @@ testSimu = Simulation(testG)
 # ======================================
 
 # NB an instance of a player cannot play directly against itself because of the attribute self.order
-# random player
+# random players
 testP1 = Player(testG, testB)
 testP2 = Player(testG, testB)
 # linear player (tries to complete lines)
 testLP1 = LinePlayer(testG, testB)
-testLP2 = LinePlayer(testG, testB)
 # human player
 testHP = HumanPlayer(testG, testB)
 # first self-leaning player
 testHAL1 = HAL1Player(testG, testB)
-# testHAL1.openTraining("trainingHAL1.pickle")  # this is to import the trained dictionary
+# testHAL1.openTraining("trainingHAL1.pickle")  # to import the trained dictionary
 
 # Simulation parameters
 # =====================
 testSimu.interactionLevel.showEveryMovement = False
 testSimu.interactionLevel.showEveryMovementAndWait = False
 testSimu.interactionLevel.showPlayerDebug = False
-testSimu.interactionLevel.showFinalBoard = True
+testSimu.interactionLevel.showFinalBoard = False
 
 # the number of game to simulate
-testSimu.numberOfGames = 100
+testSimu.numberOfGames = 10000
 
 # exchange the two players at the end of each game, makes an even series of game fair
-testSimu.exchangePlayers = True
+testSimu.exchangePlayers = False
 
 testG.boardAR = testB  # the game needs to have a reference to the board
 # defines the players of the simulation
-testG.player1 = testP1
-testG.player2 = testP2
+testG.player1 = testLP1
+testG.player2 = testHAL1
 
 # shows the board if there is a human player
 if testHP in (testG.player1, testG.player2):
@@ -57,7 +56,7 @@ if testHP in (testG.player1, testG.player2):
 # =====================
 testSimu.start()
 
-# testHAL1.saveTraining("trainingHAL1.pickle")  # this is to save the dictionary
+# testHAL1.saveTraining("trainingHAL1.pickle")  # to save the dictionary
 
 
 # shows results
@@ -74,6 +73,10 @@ if testHAL1 in (testG.player1, testG.player2):
 # plot the evolution of ratios
 # from Tools import Plot
 # Plot.plotTotalRatio(testG.player1)
+
+import matplotlib.pyplot as plt
+plt.plot(testHAL1.evolutionOfMemories)
+plt.show(block=True)
 # Plot.plotMovingRatio(testG.player1, window=500)
 
 

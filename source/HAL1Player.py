@@ -12,6 +12,7 @@ class HAL1Player(Player):
         self.memories = Memory()
         self.saveGame = True
         self.nbOfIntelligentGame = 0
+        self.evolutionOfMemories = []  # used to record the evolution of the length of the memories' dict
 
     def play(self):
         """
@@ -50,13 +51,17 @@ class HAL1Player(Player):
         This function is called when a game is over, it relies on self.saveGame to know if the game must be learn
         or not. If it is the case, memories.addGame(game) is called.
         Reset self.saveGame to True at the end.
+        Manages self.evolutionOfMemories
         """
+        super(HAL1Player, self).endOfGame()
         if self.game.interactionLevel.showPlayerDebug:
             print("HAL1: EOG, saveGame:", self.saveGame)
         if self.saveGame and self.game.winner is not None:
             self.memories.addGame(self.game)
         # reset of self.saveGame (must not be forgotten !)
         self.saveGame = True
+        # Add the length of the memory
+        self.evolutionOfMemories.append(len(self.memories.pastGames))
 
     def openTraining(self, trainingFileName):
         """ Imports a trained memories dictionary """
