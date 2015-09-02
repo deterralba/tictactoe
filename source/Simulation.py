@@ -13,6 +13,7 @@ class Simulation:
     def start(self):
         self.game.interactionLevel = self.interactionLevel
         start_time = time.time()
+
         for i in range(self.numberOfGames):
             self.game.start()
             if self.exchangePlayers:

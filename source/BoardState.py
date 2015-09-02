@@ -15,10 +15,13 @@ class BoardState:
         - __eq__() compare two boardState
     """
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         """ Initialises the board: creates empty state [] and calls self.reset() """
         self.state = []
         self.reset()
+
+        if "hash" in kwargs:
+            self.unhash(kwargs["hash"])
 
     def reset(self):
         """ Reset self.state for a new game: to [[0, 0, 0], [0, 0, 0], [0, 0, 0]] """
@@ -74,27 +77,34 @@ class BoardState:
         #         strResult += "{}".format(self.state[i][j])
         return int(strResult)
 
+    def unhash(self, theHash):
+        # theHash may be a string or a int, it is converted to string anyway
+        theHash = str(theHash)
+        # the competed with 0
+        theHash = "0"*(9-len(theHash)) + theHash
+        # and converted to BoardState()
+        self.state = [[int(theHash[3*i + j]) for j in range(3)] for i in range(3)]
 
 
 if __name__ == '__main__':
     b = BoardState()
-    c = BoardState()
-    d = BoardState()
-    b.state[1][1]= 1
-    c.state[1][1]= 1
+    b.state[1][1] = 1
 
+    b_ = BoardState()
+    b_.state[1][1] = 1
+    print("equality '==' test: True?:",b == b_)
+
+    d = BoardState()
     d.state[0][0]= 1
     d.state[0][1]= 2
     d.state[1][2]= 1
-    # print(len(b))
-    # print([b, b])
-    print(b == c, b != c)
-    l = [b, c]
-    print(c in l)
-    dd = {}
-    dd[2] = "lol2"
-    dd["k"] = "lolk"
-    print(d.__hash__())
-    # dd[b] = "BS B"
-    print(d.copy().__hash__())
+
+    l = [b, d]
+    print("owing test: d in l: True?:", d in l)
+
+    print("hash test: ", d, d.__hash__(), "should be 120001000")
+
+    print("copy() test through hash: should be 120001000:", d.copy().__hash__())
+
+    print("test: instantiated from hash: 12000", BoardState(hash=12000))
 

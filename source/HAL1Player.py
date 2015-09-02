@@ -11,7 +11,7 @@ class HAL1Player(Player):
         super().__init__(game, board)
         self.memories = Memory()
         self.saveGame = True
-        self.nbOfIntelligentGame = 0
+        self.nbOfIntelligentGame = 0  # used for statistics purposes
         self.evolutionOfMemories = []  # used to record the evolution of the length of the memories' dict
 
     def play(self):
@@ -53,13 +53,21 @@ class HAL1Player(Player):
         Reset self.saveGame to True at the end.
         Manages self.evolutionOfMemories
         """
+        # calls the parent's method (that registers the statistics)
         super(HAL1Player, self).endOfGame()
+
+        # print info if wanted
         if self.game.interactionLevel.showPlayerDebug:
             print("HAL1: EOG, saveGame:", self.saveGame)
+
+        # if the game is not knows (saveGame == True) and is not even (winner != None)
+        # the game is learnt
         if self.saveGame and self.game.winner is not None:
             self.memories.addGame(self.game)
+
         # reset of self.saveGame (must not be forgotten !)
         self.saveGame = True
+
         # Add the length of the memory
         self.evolutionOfMemories.append(len(self.memories.pastGames))
 
