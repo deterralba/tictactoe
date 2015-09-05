@@ -47,6 +47,7 @@ class Game:
             - turn is incremented,
             - nextPlayer.play() is called and then next and last player are inverted,
             - if wanted, the board is printed.
+
         When it is over, endOfGame() of player1 and 2 is called - if wanted, the result is printed.
         """
         # prepares all the instances (board etc) for a new game
