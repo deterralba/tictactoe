@@ -1,9 +1,9 @@
-.. tictactoe documentation master file, created by
-   sphinx-quickstart on Sat Sep  5 17:07:08 2015.
+.. TicTacToe documentation master file, created by
+   sphinx-quickstart on Sun Sep  6 13:16:10 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to tictactoe's documentation!
+Welcome to TicTacToe's documentation!
 =====================================
 
 Contents:
@@ -11,7 +11,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   modules
+   pages/source
+
+
 
 Indices and tables
 ==================

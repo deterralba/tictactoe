@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# coding: utf-8
 #
-# tictactoe documentation build configuration file, created by
-# sphinx-quickstart on Sat Sep  5 17:07:08 2015.
+# TicTacToe documentation build configuration file, created by
+# sphinx-quickstart on Sun Sep  6 13:16:10 2015.
 #
 # This file is execfile()d with the current directory set to its
 # containing dir.
@@ -21,7 +21,7 @@ import shlex
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('../'))
-print(os.path.abspath('../'))
+print("*** documentation/conf.py executed, add path:", os.path.abspath('../'))
 
 # -- General configuration ------------------------------------------------
 
@@ -33,6 +33,7 @@ print(os.path.abspath('../'))
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'sphinx.ext.viewcode',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -50,7 +51,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'tictactoe'
+project = 'TicTacToe'
 copyright = '2015, deterralba'
 author = 'deterralba'
 
@@ -89,7 +90,7 @@ exclude_patterns = ['_build']
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).
-#add_module_names = True
+add_module_names = False
 
 # If true, sectionauthor and moduleauthor directives will be shown in the
 # output. They are ignored by default.
@@ -112,7 +113,7 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -204,7 +205,7 @@ html_static_path = ['_static']
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'tictactoedoc'
+htmlhelp_basename = 'TicTacToedoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -226,7 +227,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'tictactoe.tex', 'tictactoe Documentation',
+  (master_doc, 'TicTacToe.tex', 'TicTacToe Documentation',
    'deterralba', 'manual'),
 ]
 
@@ -256,7 +257,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'tictactoe', 'tictactoe Documentation',
+    (master_doc, 'tictactoe', 'TicTacToe Documentation',
      [author], 1)
 ]
 
@@ -270,8 +271,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'tictactoe', 'tictactoe Documentation',
-   author, 'tictactoe', 'One line description of project.',
+  (master_doc, 'TicTacToe', 'TicTacToe Documentation',
+   author, 'TicTacToe', 'One line description of project.',
    'Miscellaneous'),
 ]
 

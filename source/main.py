@@ -75,9 +75,9 @@ if __name__ == '__main__':
     # from Tools import Plot
     # Plot.plotTotalRatio(testG.player1)
 
-    import matplotlib.pyplot as plt
-    plt.plot(testHAL1.evolutionOfMemories)
-    plt.show(block=True)
+    # import matplotlib.pyplot as plt
+    # plt.plot(testHAL1.evolutionOfMemories)
+    # plt.show(block=True)
     # Plot.plotMovingRatio(testG.player1, window=500)
 
 
