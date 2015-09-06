@@ -91,7 +91,9 @@ class Plot:
         plt.plot(winList, label="Win")
         plt.plot(lossList, label="Loss")
         plt.plot(evenList, label="Even")
-        plt.legend()
+        plt.legend(loc=3)
+        plt.title("Evolution of the ratios numberOfWins/numberOfGames, nbOfLosses and nbOdEvens"
+                  "\nwith the number of games played")
         plt.show(block=True)
 
     @staticmethod
@@ -105,7 +107,10 @@ class Plot:
         plt.plot(winList, label="Win")
         plt.plot(lossList, label="Loss")
         plt.plot(evenList, label="Even")
-        plt.legend()
+        plt.legend(loc=3)
+        plt.title("Evolution of the moving average numberOfWins/numberOfGames, nbOfLosses and nbOdEvens"
+                  "\nwith the number of games played, with a moving window of {} games".format(window))
+
         plt.show(block=True)
 
 

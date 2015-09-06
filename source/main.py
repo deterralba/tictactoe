@@ -35,7 +35,7 @@ if __name__ == '__main__':
     testSimu.interactionLevel.showEveryMovement = False
     testSimu.interactionLevel.showEveryMovementAndWait = False
     testSimu.interactionLevel.showPlayerDebug = False
-    testSimu.interactionLevel.showFinalBoard = False
+    testSimu.interactionLevel.showFinalBoard = True
 
     # the number of game to simulate
     testSimu.numberOfGames = 10000
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     testG.boardAR = testB  # the game needs to have a reference to the board
     # defines the players of the simulation
-    testG.player1 = testLP1
+    testG.player1 = testP1
     testG.player2 = testHAL1
 
     # shows the board if there is a human player
@@ -74,11 +74,13 @@ if __name__ == '__main__':
     # plot the evolution of ratios
     # from Tools import Plot
     # Plot.plotTotalRatio(testG.player1)
-
+    # Plot.plotMovingRatio(testG.player1, window=500)
+    #
     # import matplotlib.pyplot as plt
     # plt.plot(testHAL1.evolutionOfMemories)
+    # plt.title("Evolution of the size of the IA learned dictionary"
+    #           "\nwith the number of games played")
     # plt.show(block=True)
-    # Plot.plotMovingRatio(testG.player1, window=500)
 
 
 
