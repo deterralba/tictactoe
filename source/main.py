@@ -1,19 +1,38 @@
-# Importation of the core
-# =======================
-# Fear not ! The package core is conceived to be imported that way
-from core import *
-# This importation occupy the following names:
-# BoardAndRules, BoardState, Game, InteractionLevel, Movement, Player, PlayerStatistic, Simulation
+"""
+This is the entry point of the program, the first module executed.
 
+Here you can parameter all the program, no need to read other source files.
 
-# Importation of players
-# =======================
-from players.HumanPlayer import HumanPlayer
-from players.LinePlayer import LinePlayer
-from players.HAL1Player import HAL1Player
+How it works!
+=============
 
+There are 6 main steps:
+
+#. importation of the useful packages
+#. instantiation if the main objects (Game, BoardAndRules and Simulation)
+#. instantiation if the players
+#. settings of the simulation parameters (choice of the players, of the numbers of games played etc.)
+#. execution of the simulation
+#. printing of the results
+
+See the commented source code of to configure the simulation and lunch the program.
+
+"""
 
 if __name__ == '__main__':
+    # Importation of the core
+    # =======================
+    # Fear not ! The package core is conceived to be imported that way
+    from core import *
+    # This importation occupy the following names:
+    # BoardAndRules, BoardState, Game, InteractionLevel, Movement, Player, PlayerStatistic, Simulation
+
+    # Importation of players
+    # =======================
+    from players.HumanPlayer import HumanPlayer
+    from players.LinePlayer import LinePlayer
+    from players.HAL1Player import HAL1Player
+
 
     # principal objects are instantiated
     # ==================================
@@ -35,7 +54,8 @@ if __name__ == '__main__':
     testHP = HumanPlayer(testG, testB)
     # first self-leaning player
     testHAL1 = HAL1Player(testG, testB)
-    # testHAL1.openTraining("trainingHAL1.pickle")  # to import the trained dictionary
+    # testHAL1.openTraining("players/trainingHAL1.pickle")  # to import the trained dictionary
+
 
     # Simulation parameters
     # =====================
@@ -64,7 +84,7 @@ if __name__ == '__main__':
     # =====================
     testSimu.start()
 
-    # testHAL1.saveTraining("trainingHAL1.pickle")  # to save the dictionary
+    # testHAL1.saveTraining("players/trainingHAL1.pickle")  # to save the dictionary
 
 
     # shows results
@@ -89,20 +109,7 @@ if __name__ == '__main__':
     #           "\nwith the number of games played")
     # plt.show(block=True)
 
-
-
-
-
-    # --- old debugging ---
-    # while True:
-    # testG.start()
-    # place = [1, 2]
-    # testB.play(testP1, place)
-    # testB.play(testP2, [1, 1])
-    # print(testB)
-    # k = 0
-    # for i in range(3):
-    #     for j in range(3):
-    #         k += 1
-    #         testB.state[i][j] = k
-    # print(testB.state)
+def main():
+    """ I'm your link to the main module ! """
+    # I do nothing except create a link to the module in the documentation :)
+    pass

@@ -1,3 +1,7 @@
+"""
+This is a test file used as a Python interpreter.. Chunks of more or less useful pices of code!
+"""
+
 if __name__ == '__main__':
 
     t = [[1, 2, 3, 4], [10, 20, 30]]

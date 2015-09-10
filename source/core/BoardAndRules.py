@@ -1,4 +1,4 @@
-from BoardState import BoardState
+from .BoardState import BoardState
 
 
 class BoardAndRules:

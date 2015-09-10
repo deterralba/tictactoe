@@ -1,4 +1,4 @@
-from InteractionLevel import InteractionLevel
+from .InteractionLevel import InteractionLevel
 
 
 class Game:

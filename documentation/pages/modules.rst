@@ -1,5 +1,5 @@
-source
-======
+List of all the packages
+========================
 
 .. toctree::
    :maxdepth: 4

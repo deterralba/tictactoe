@@ -22,14 +22,14 @@ The following classes will be imported:
 
 Use
 ===
-To use the imported classes, just write Game(), no need to use core.Game.Game().
+To use the imported classes, just write::
+
+    Game()
+
+no need to use core.Game.Game().
+
 This is made possible thanks to the addition of the core/ folder path to the Python path
-and the use of::
-
-    from Game import Game
-
-in the __init__.py file.
-
+and the use of ``from core.Game import Game`` in the __init__.py file.
 """
 
 
@@ -37,32 +37,19 @@ in the __init__.py file.
 # for example when the doc is compiled, or in source/main.py
 
 
-# Explanations: Why import the core/ path to the Python Path ?
-# ============================================================
-# It is far easier to manage the core package if its path is in the Python Path:
-# It is possible to write "from BoardState import BoardState" in core/BoardAndRules.py (when executed from source/)
-# while it should be "from core.BoardState import BoardState" if the path wasn't added.
-# But "from core.BoardState import BoardState" would be problematic when executed from core/ !
-# With the core path added, "from BoardState import BoardState" works when executed from both source/ and  code/.
-# Tadam !
-
-# the folder path is added to the python path
-import os
-import sys
-sys.path.insert(0, os.path.dirname(__file__))
-print("*** source/core/__init__.py is executed, source/core/ was added to the python path")
-# this allows to use foo instead of core.foo in source/ (see explanations)
-
+# Explanations: Why not importing the core/ path to the Python Path ?
+# ===================================================================
+# Because every module (.py file) should be executed from the source/ folder (ex: python -m core.Game)
+# Hence the importation of the core/ path is not useful
 
 # the following bloc allows "from core import *" (in source/) to import directly BoardAndRules
-# and not BoardAndRules.BoardAndRules (same idea for all the classes)
+# and not core.BoardAndRules (same idea for all the classes)
 
-from BoardAndRules import BoardAndRules
-from BoardState import BoardState
-from Game import Game
-from InteractionLevel import InteractionLevel
-from Movement import Movement
-from Player import Player
-from PlayerStatistic import PlayerStatistic
-from Simulation import Simulation
-
+from core.BoardAndRules import BoardAndRules
+from core.BoardState import BoardState
+from core.Game import Game
+from core.InteractionLevel import InteractionLevel
+from core.Movement import Movement
+from core.Player import Player
+from core.PlayerStatistic import PlayerStatistic
+from core.Simulation import Simulation

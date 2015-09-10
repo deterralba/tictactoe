@@ -1,6 +1,6 @@
 import random
-from PlayerStatistic import PlayerStatistic
-from Movement import Movement
+from .PlayerStatistic import PlayerStatistic
+from .Movement import Movement
 
 
 class Player:
