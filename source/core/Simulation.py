@@ -1,6 +1,7 @@
 import time
 from InteractionLevel import InteractionLevel
 
+
 class Simulation:
     # TODO: add comments here
     def __init__(self, game):

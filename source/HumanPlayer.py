@@ -1,5 +1,5 @@
-from Player import Player
-from Movement import Movement
+from core import *
+
 
 class HumanPlayer(Player):
     """ Subclass of Player, asks via the command prompt where to play (line and column, between 1 and 3) """

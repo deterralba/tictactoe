@@ -1,7 +1,7 @@
-source.PlayerStatistic module
+source.core.BoardState module
 =============================
 
-.. automodule:: source.PlayerStatistic
+.. automodule:: source.core.BoardState
     :members:
     :undoc-members:
     :show-inheritance:

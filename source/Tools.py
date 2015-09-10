@@ -1,7 +1,8 @@
 import math
-from Player import Player
+from core import *
 
-#TODO: add comments !
+
+# TODO: add comments !
 class Analyze:
     @staticmethod
     def createTotalRatios(resultsList):

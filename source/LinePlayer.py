@@ -1,6 +1,6 @@
-from Player import Player
-from Movement import Movement
+from core import *
 import random
+
 
 class LinePlayer(Player):
     """

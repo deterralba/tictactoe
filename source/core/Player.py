@@ -2,6 +2,7 @@ import random
 from PlayerStatistic import PlayerStatistic
 from Movement import Movement
 
+
 class Player:
     """"
     Represents a random player, is subclassed to create human and intelligent players

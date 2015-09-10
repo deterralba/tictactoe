@@ -1,10 +1,17 @@
-from BoardAndRules import BoardAndRules
-from Player import Player
-from Game import Game
-from Simulation import Simulation
+# Importation of the core
+# =======================
+# Fear not ! The package core is conceived to be imported that way
+from core import *
+# This importation occupy the following names:
+# BoardAndRules, BoardState, Game, InteractionLevel, Movement, Player, PlayerStatistic, Simulation
+
+
+# Importation of players
+# =======================
 from HumanPlayer import HumanPlayer
 from LinePlayer import LinePlayer
 from HAL1Player import HAL1Player
+
 
 if __name__ == '__main__':
 
@@ -38,7 +45,7 @@ if __name__ == '__main__':
     testSimu.interactionLevel.showFinalBoard = True
 
     # the number of game to simulate
-    testSimu.numberOfGames = 10000
+    testSimu.numberOfGames = 10
 
     # exchange the two players at the end of each game, makes an even series of game fair
     testSimu.exchangePlayers = False

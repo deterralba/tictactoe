@@ -1,5 +1,6 @@
 from BoardState import BoardState
 
+
 class BoardAndRules:
     """
     Represents the rules of the game,

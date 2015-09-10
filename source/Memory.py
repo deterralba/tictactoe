@@ -1,5 +1,4 @@
-from Movement import Movement
-from Game import Game
+from core import *
 
 
 class Memory:

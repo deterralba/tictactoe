@@ -1,7 +1,5 @@
-from Player import Player
+from core import *
 from Memory import Memory
-from Movement import Movement
-
 
 class HAL1Player(Player):
     """

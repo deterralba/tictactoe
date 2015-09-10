@@ -1,7 +1,7 @@
-source.BoardAndRules module
+source.core.Movement module
 ===========================
 
-.. automodule:: source.BoardAndRules
+.. automodule:: source.core.Movement
     :members:
     :undoc-members:
     :show-inheritance:
