@@ -25,11 +25,12 @@ Use
 To use the imported classes, just write::
 
     Game()
+    BoardAndRules()  # etc...
+
 
 no need to use core.Game.Game().
 
-This is made possible thanks to the addition of the core/ folder path to the Python path
-and the use of ``from core.Game import Game`` in the __init__.py file.
+This is made possible thanks to the use of ``from core.Game import Game`` in the __init__.py file.
 """
 
 
