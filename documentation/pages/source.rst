@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
 
     source.core
+    source.players
 
 Submodules
 ----------

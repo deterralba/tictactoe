@@ -1,5 +1,5 @@
 from core import *
-from Memory import Memory
+from .Memory import Memory
 
 class HAL1Player(Player):
     """

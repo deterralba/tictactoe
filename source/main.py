@@ -8,9 +8,9 @@ from core import *
 
 # Importation of players
 # =======================
-from HumanPlayer import HumanPlayer
-from LinePlayer import LinePlayer
-from HAL1Player import HAL1Player
+from players.HumanPlayer import HumanPlayer
+from players.LinePlayer import LinePlayer
+from players.HAL1Player import HAL1Player
 
 
 if __name__ == '__main__':
@@ -79,7 +79,7 @@ if __name__ == '__main__':
         print("Number of intelligent games played:", testHAL1.nbOfIntelligentGame)
 
     # plot the evolution of ratios
-    # from Tools import Plot
+    # from misc.Tools import Plot
     # Plot.plotTotalRatio(testG.player1)
     # Plot.plotMovingRatio(testG.player1, window=500)
     #
