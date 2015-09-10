@@ -4,4 +4,6 @@ source
 .. toctree::
    :maxdepth: 4
 
-   source
+   core/core
+   players/players
+   misc/misc

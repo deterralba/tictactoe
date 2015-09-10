@@ -20,8 +20,12 @@ import os
 # ================================================================================
 # this is used to rebuild the whole tree of packages before each documentation
 import shutil
-shutil.rmtree('pages')  # this remove the previous tree of packages
-os.system("sphinx-apidoc -o pages ../source -ef")  # this rebuilds the tree:
+shutil.rmtree('pages/core', ignore_errors=True)  # this remove the previous tree of packages
+shutil.rmtree('pages/misc', ignore_errors=True)  # this remove the previous tree of packages
+shutil.rmtree('pages/players', ignore_errors=True)  # this remove the previous tree of packages
+os.system("sphinx-apidoc -o pages/core ../source/core -ef")  # this rebuilds the tree:
+os.system("sphinx-apidoc -o pages/misc ../source/misc -ef")  # this rebuilds the tree:
+os.system("sphinx-apidoc -o pages/players ../source/players -ef")  # this rebuilds the tree:
 # '-o pages' specifies where the rst files should be created
 # '../source/' specifies where is the sourcecode folder
 # the -e option creates different rst-files for the different modules
@@ -35,8 +39,8 @@ import shlex
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 # ============================ Personal modifications ============================
 # ================================================================================
-sys.path.insert(0, os.path.abspath('../'))
-print("*** documentation/conf.py executed, add path:", os.path.abspath('../'))
+sys.path.insert(0, os.path.abspath('../source/'))
+print("*** documentation/conf.py executed, add path:", os.path.abspath('../source/'))
 
 # -- General configuration ------------------------------------------------
 
