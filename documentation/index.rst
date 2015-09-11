@@ -17,8 +17,8 @@ I made this program with love and patience to learn how the use of a bunch of ne
 For instance, the doc you are currently reading is compiled with sphinx, a very powerful and
 noob-unfriendly software.
 
-Let's go to the point
----------------------
+Let's go to the point!
+----------------------
 
 If you are in a hurry, please go the the :mod:`main` module page.
 Everything is explained there if you just want to run a quick simulation.
@@ -29,7 +29,7 @@ Contents:
 The project is divided in several packages. They are all called from the main module located
 at the root of the project.
 
-The :mod:`core` package provide... the core classes of the program, which represent a game, the board,
+The :mod:`core` package provides... the core classes of the program, which represent a game, the board,
 the manager of a simulation, basic players etc.
 
 The :mod:`players` package contains more sophisticated players that have either simple strategies

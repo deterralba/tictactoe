@@ -21,7 +21,7 @@ See the commented source code of to configure the simulation and lunch the progr
 
 if __name__ == '__main__':
     # Importation of the core
-    # =======================
+    # ==========================
     # Fear not ! The package core is conceived to be imported that way
     from core import *
     # This importation occupy the following names:
@@ -90,7 +90,7 @@ if __name__ == '__main__':
     # shows results
     # =============
 
-    # print on the console the statistic of a player
+    # prints on the console the statistic of a player
     print(testG.player1.statistic)
 
     # shows data of self learning player if it played
@@ -98,7 +98,7 @@ if __name__ == '__main__':
         print("Size of the memory: {}".format(len(testHAL1.memories.pastGames)))
         print("Number of intelligent games played:", testHAL1.nbOfIntelligentGame)
 
-    # plot the evolution of ratios
+    # plots the evolution of ratios
     # from misc.Tools import Plot
     # Plot.plotTotalRatio(testG.player1)
     # Plot.plotMovingRatio(testG.player1, window=500)

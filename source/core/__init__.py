@@ -1,6 +1,6 @@
 """
 This is the Core package of the Game, it contains the primary classes of the game that are all needed to start
-a series a game between two random players.
+a series of games between two random players.
 
 Importation
 ===========
@@ -24,13 +24,13 @@ Use
 ===
 To use the imported classes, just write::
 
-    Game()
-    BoardAndRules()  # etc...
+    game = Game()
+    bAndR = BoardAndRules()  # etc...
 
 
-no need to use core.Game.Game().
+no need to use ``core.Game.Game()``.
 
-This is made possible thanks to the use of ``from core.Game import Game`` in the __init__.py file.
+This is made possible thanks to the use of ``from core.Game import Game`` in the :file:`__init__.py` file.
 """
 
 

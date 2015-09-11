@@ -4,7 +4,9 @@ import random
 
 class LinePlayer(Player):
     """
-    Subclass of Player, first move is random, then check if there is an unoccupied line with 2
+    Subclass of Player with an aggressive strategy:
+
+    first move is random, then checks if there is an unoccupied line with 2
     cases already checked by itself and check the last case, (if there is none do the same
     with a free line where there is already one case checked)
     """
@@ -12,7 +14,7 @@ class LinePlayer(Player):
         super().__init__(game, boardAR)
 
     def play(self):
-        """ Play a first random movement and then tries to complete lines """
+        """ Plays a first random movement and then tries to complete lines """
         if self.game.turn <= 2:
             if self.game.interactionLevel.showPlayerDebug:
                 print("LP: Random")
