@@ -2,15 +2,26 @@
 
 class Movement:
     """
-    Represents a movement played by a player
+    Represents a movement played by a player.
 
-    Attributes:
-        - place (list of 2 int) the place [line, column]
-        - turn (int) must be set in board.play()
-        - player (Player) the player playing
+    Attributes
+    ----------
+    place : 2-list of int
+        The place [line, column].
+    turn : int
+        Must be set in board.play().
+    player : Player
+        The player playing.
 
-    Warnings:
-        - self.turn must be set by BoardAndRules
+    Parameters
+    ----------
+    player: Player
+    place: 2-list of int
+
+    Warning
+    -------
+    :attr:`self.turn` must be set in :meth:`.BoardAndRules.play`.
+
     """
     def __init__(self, player, place):
         self.place = place

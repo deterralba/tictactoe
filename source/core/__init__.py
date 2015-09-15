@@ -8,17 +8,17 @@ The clean way to import the core package is::
 
     from core import *
 
-This may seem like a bad idea but the importation process in controlled in the __init__.py file.
-The following classes will be imported:
+This may seem like a bad idea but the importation process in controlled in the :file:`core/__init__.py` file.
+All the following classes will be imported:
 
-- BoardAndRules
-- BoardState
-- Game
-- InteractionLevel
-- Movement
-- Player
-- PlayerStatistic
-- Simulation
+- :class:`BoardAndRules`
+- :class:`BoardState`
+- :class:`Game`
+- :class:`InteractionLevel`
+- :class:`Movement`
+- :class:`Player`
+- :class:`PlayerStatistic`
+- :class:`Simulation`
 
 Use
 ===
@@ -30,7 +30,8 @@ To use the imported classes, just write::
 
 no need to use ``core.Game.Game()``.
 
-This is made possible thanks to the use of ``from core.Game import Game`` in the :file:`__init__.py` file.
+This is made possible thanks to the use of ``from core.Game import Game`` in the :file:`core/__init__.py` file.
+
 """
 
 

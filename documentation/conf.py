@@ -57,6 +57,11 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon'
 ]
+# autodoc_default_flags = ['members', 'undoc-members', ':show-inheritance:', 'special-members']
+napoleon_use_ivar = True
+napoleon_use_rtype = True
+napoleon_use_param = True
+
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -108,7 +113,9 @@ exclude_patterns = ['_build']
 #default_role = None
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
-#add_function_parentheses = True
+# ============================ Personal modifications ============================
+# ================================================================================
+add_function_parentheses = True
 
 # If true, the current module name will be prepended to all description
 # unit titles (such as .. function::).

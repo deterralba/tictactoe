@@ -2,36 +2,52 @@
 
 class BoardState:
     """
-    Represents the "physical board"
+    Represents the *physical board*.
 
-    Attributes:
-    - state (list of list) 3-list (line) of 3-list (column),
-        initialised with "0",
+    Attributes
+    ----------
+    state: 3-list (line) of 3-list (column)
+        The state of the board: initialised with "0": ``[[0, 0, 0], [0, 0, 0], [0, 0, 0]]``
         uses player.order to put "1" or "2" where the players play.
 
-    Methods:
-        - reset() empty to board
-        - len() return the turn
-        - __eq__() compare two boardState
+
+    Parameters
+    ----------
+    hash: int, optional
+        If ``hash`` is in **kwargs, it will be used to fill the board, default is None.
+
+    Examples
+    --------
+    emptyB = BoardState()
+    fullB = BoardState(hash=122121121)
+
+
     """
 
-    def __init__(self, **kwargs):
-        """ Initialises the board: creates empty state [] and calls self.reset() """
+    def __init__(self, hash=None):
+        """
+        Initialises the board: creates empty state [] and calls :meth:`reset`
+
+        If optimal hash is given, :meth:`unhash` is called
+        """
         self.state = []
         self.reset()
 
-        if "hash" in kwargs:
-            self.unhash(kwargs["hash"])
+        if hash is not None:
+            self.unhash(hash)
 
     def reset(self):
-        """ Reset self.state for a new game: to [[0, 0, 0], [0, 0, 0], [0, 0, 0]] """
+        """ Reset self.state for a new game: to ``[[0, 0, 0], [0, 0, 0], [0, 0, 0]]`` """
         self.state.clear()
         self.state = [[0 for i in range(3)] for j in range(3)]  # generate [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
     def __repr__(self):
         """
-        Returns a string of 3 lines (plus one above and one under) representing the board,
-        with X and O instead of 1 and 2
+        Return
+        ------
+        string
+            3 lines representing the board (plus one line above and one under)
+            with X and O instead of 1 and 2
         """
         grid = ""
         for i in range(3):
@@ -45,26 +61,52 @@ class BoardState:
         return grid
 
     def __len__(self):
-        """ Returns the turn of the board (counts the 0 and deduces the turn T = 9 - nb(0) )"""
+        """
+        Return
+        ------
+        int
+            the turn of the board: counts the 0 and deduces the turn ``T = 9 - nb(0)``
+        """
         count0 = 0
         for i in range(len(self.state)):
             count0 += self.state[i].count(0)
         return 9 - count0
 
     def copy(self):
-        """ Creates a new object BoardState identical and returns it (used for storage) """
+        """
+        Return
+        ------
+        BoardState
+            A new identical copy of BoardState (useful for storage)
+
+        """
         copyBS = BoardState()
         copyBS.state = [[self.state[i][j] for j in range(3)] for i in range(3)]
         return copyBS
 
     def __eq__(self, other):
-        """ Tests the equality of self.state and other.state """
+        """
+        Return
+        ------
+        bool
+            True if self.state and other.state are equal
+        """
         return self.state == other.state
 
     def __hash__(self):
         """
-        Returns a integer created by the concatenation of all the cases
-        Ex: [[0, 1, 2], [3, 4, 5], [6, 7, 8]] returns 12345678 (NB: first 0 is gone !)
+        Return
+        ------
+        int
+            An integer created by the concatenation of all the cases
+
+        Examples
+        --------
+        ``[[0, 1, 2], [3, 4, 5], [6, 7, 8]]`` returns ``12345678``
+
+        Warning
+        -------
+        First 0 is gone!
         """
         # flatten the list and convert item to string, ex: [[0,1,2], [3,4,5]] -> ['0','1','2','3','4','5']
         flat_list = [str(i) for sublist in self.state for i in sublist]

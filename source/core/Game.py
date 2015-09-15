@@ -6,38 +6,40 @@ class Game:
     Main object, registers the Board and the Players.
 
     Attributes
-        boardAR (BoardAndRules):
-            Reference to the main BoardAndRules instance
+    ----------
+    boardAR: BoardAndRules
+        Reference to the main BoardAndRules instance
 
-        player1 and player2 (Player):
-            References to the players
+    player1 and player2: layer
+        References to the players
 
-        lastPlayer and nextPlayer (Player):
-            References to player1 and player2, are exchanged between the turns
+    lastPlayer and nextPlayer: Player
+        References to player1 and player2, are exchanged between the turns
 
-        movements (list of Movement):
-            the chronological list of Movement() played
+    movements: list of Movement
+        the chronological list of Movement() played
 
-        states (list of BoardState):
-            the chronological list of BoardStates()
+    states: list of BoardState
+        the chronological list of BoardStates()
 
-        turn (int):
-            The present turn of the game, initialised at 0, first turn must be 1 (modified in start() )
+    turn: int
+        The present turn of the game, initialised at 0, first turn must be 1 (modified in start() )
 
-        movements (list of Movement):
-            the list of all the Movements made
+    movements: list of Movement
+        the list of all the Movements made
 
-        states (list of BoardStates):
-            the list of the different BoardState of the game
+    states: list of BoardStates
+        the list of the different BoardState of the game
 
-        winner (Player or None):
-            Defined by :func:`BoardAndRules.thereIsAWinner`, stays None is there is none
+    winner: Player or None
+        Defined by :func:`BoardAndRules.thereIsAWinner`, stays None is there is none
 
-        interactionLevel (InteractionLevel):
-            used to define the level of printed outputs
+    interactionLevel: InteractionLevel
+        used to define the level of printed outputs
 
     Warning
-        movements and states must be updated by boardAR.play()
+    -------
+    movements and states must be updated by boardAR.play()
     """
 
     def __init__(self):

@@ -4,20 +4,14 @@ from .BoardState import BoardState
 class BoardAndRules:
     """
     Represents the rules of the game,
-    saves the present state of the game and checks that the players follow the rules
+    saves the present state of the game and checks that the players follow the rules.
 
-    Attributes:
-        - game (Game) reference to the game
-        - boardS (BoardState) representing the present board
-
-    Methods:
-        - play(mvt): called by the players, writes "player.order" (1 or 2) on the board
-            where the player plays if the place is empty (0)
-            Returns True if the movement was legal, else do nothing and returns False
-        - extractLines(): returns a list of all the lines that can be completed
-        - thereIsAWinner(): returns True if there is a winner and sets game.winner
-        - getBoard(): returns a copy of self.boardS, used to store the different state of a game
-        - reset(): resets the board for a new game
+    Attributes
+    ----------
+    game : Game
+        A reference to the game.
+    boardS : BoardState
+        Represents the present physical board.
     """
 
     def __init__(self, game):
@@ -33,11 +27,19 @@ class BoardAndRules:
         """
         Verifies that the movement of the player follows the rules and writes it on the board.
 
-        Also sets movement.turn and registers the movement in the list game.movements
-        Registers boardS in game.states
+        Also sets :attr:`.Movement.turn` and registers the movement in the list :attr:`.Game.movements`
+        Registers boardS in :attr:`.Game.states`
 
-        :param mvt: (Movement) the Movement the player wants to play
-        :return: (bool) True if the movement is possible, else False
+        Parameters
+        ----------
+        mvt : Movement
+            The Movement the player wants to play
+
+        Returns
+        -------
+        bool
+            True if the movement is possible, else False
+
         """
         # if the place is empty (occupy by 0), the order of the payer is written in it
         if self.boardS.state[mvt.place[0]][mvt.place[1]] == 0:
@@ -51,9 +53,16 @@ class BoardAndRules:
 
     def extractLines(self):
         """
-        Extracts the 8 lines than can be completed (3 vertical, 3 horizontal, 2 diagonal: 11-33 and 31-13).
+        Extracts the 8 lines than can be completed:
 
-        :return: the list of lines
+        - 3 vertical: left -> right,
+        - 3 horizontal: up -> down,
+        - 2 diagonal: 11->33 & 31->13.
+
+        Returns
+        -------
+        list of list
+            The list of lines
         """
         board = self.boardS.state
         lines = []
@@ -75,9 +84,12 @@ class BoardAndRules:
 
     def thereIsAWinner(self):
         """
-        Sets game.winner if there is one.
+        Sets :attr:`.Game.winner` if there is one.
 
-        :return: True if there is a winner (ie if 3 dots are aligned), else False
+        Returns
+        -------
+        bool
+            True if there is a winner (ie if 3 dots are aligned), else False
         """
         lines = self.extractLines()
         for line in lines:
@@ -88,7 +100,10 @@ class BoardAndRules:
 
     def getBoard(self):
         """
-        :return: a copy of the self.board that will not be updated when a new movement is made
+        Returns
+        -------
+        BoardState
+            a copy of the self.board that will not be updated when a new movement is made
         """
         return self.boardS.copy()
 
