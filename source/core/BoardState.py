@@ -8,7 +8,7 @@ class BoardState:
     ----------
     state: 3-list (line) of 3-list (column)
         The state of the board: initialised with "0": ``[[0, 0, 0], [0, 0, 0], [0, 0, 0]]``
-        uses player.order to put "1" or "2" where the players play.
+        uses ``player.order`` to put "1" or "2" where the players play.
 
 
     Parameters

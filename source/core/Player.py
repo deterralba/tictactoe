@@ -32,7 +32,7 @@ class Player:
         self.statistic = PlayerStatistic(self)
 
     def play(self):
-        """ Play a random movement (stupid: tries until a movement is not refused) """
+        """ Calls randomPlay() """
         self.randomPlay()
 
     def randomPlay(self):

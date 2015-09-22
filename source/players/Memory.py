@@ -7,14 +7,19 @@ class Memory:
 
     def addGame(self, game):
         """
-        Add a game in the dictionary self.pastGames :
-            key = hash of the state before the wining movement
-            value = the Movement.place (couple [x,y]) that linked to the victory
+        Add a game in the dictionary :attr:`pastGames` :
 
-        :param game: the ended Game() instance to save
+            - key = hash of the state before the wining movement
+            - value = the ``Movement.place`` (couple [x,y]) that linked to the victory
 
-        Warnings:
-            - does not check is the result is an even or a victory
+        Parameters
+        ----------
+        game : Game
+            the ended :class:`Game` instance to save
+
+        Warnings
+        --------
+        Does not check is the result is an even or a victory
         """
         boardSBeforeEnd = game.states[-2]
         winningMovementPlace = game.movements[-1].place

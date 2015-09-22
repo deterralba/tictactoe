@@ -3,7 +3,18 @@ from .Memory import Memory
 
 class HAL1Player(Player):
     """
-    Subclass of Player, first try of learning player
+    Subclass of Player, first try of learning player.
+
+    Attributes
+    ----------
+    memories: Memory
+        Advanced dictionary that registers the past games.
+    saveGame: bool
+        Indicates if the game must be saved or not (True by default, set to False if the game is known).
+    nbOfIntelligentGame: int
+        The number of game where the memory have been used.
+    evolutionOfMemories: list of int
+        The lengths of the memory, one entry added at the end hof each game.
     """
     def __init__(self, game, board):
         super().__init__(game, board)
