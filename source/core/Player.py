@@ -7,19 +7,22 @@ class Player:
     """"
     Represents a random player, is subclassed to create human and intelligent players
 
-    Attributes:
-        - boardAR (BoardAndRules) reference to the board (and rules)
-        - game (Game) reference to the game
-        - order (int) tells if the player is the first to play or the second,
-            is used to select the type of mark used on the board
-            !! initialised with -1, must be set !!
-        - statistic (PlayerStatistic) saves the stats of the player
+    Attributes
+    ----------
+    boardAR : BoardAndRules
+        A reference to the board (and rules)
+    game : Game
+        A reference to the game
+    order : int
+        Tells if the player is the first to play or the second,
+        is used to select the type of mark used on the board
+        !! initialised with -1, must be set !!
+    statistic : PlayerStatistic
+        Saves the stats of the player
 
-    Methods:
-        - play(): called by the game when the player must play
-
-    Warnings:
-        - player.order must be set by the game
+    Warnings
+    --------
+    player.order must be set by the game
     """
 
     def __init__(self, game, boardAR):

@@ -1,5 +1,7 @@
 from .InteractionLevel import InteractionLevel
 
+# TODO raise exception if a player tries to play two times
+# TODO use a list of players instead of two players
 
 class Game:
     """
@@ -39,7 +41,7 @@ class Game:
 
     Warning
     -------
-    movements and states must be updated by boardAR.play()
+    movements and states must be updated by ``boardAR.play()``
     """
 
     def __init__(self):
@@ -60,13 +62,13 @@ class Game:
 
         How it is working:
 
-        As long as the game is not over (ie self.turn < 9 and thereIsAWinner == False) there is a loop where:
+        As long as the game is not over (ie ``self.turn < 9 and thereIsAWinner == False``) there is a loop where:
 
         - turn is incremented,
-        - nextPlayer.play() is called and then next and last player are inverted,
+        - ``nextPlayer.play()`` is called and then next and last player are inverted,
         - if wanted, the board is printed.
 
-        When it is over, endOfGame() of player1 and player2 is called - if wanted, the result is printed.
+        When it is over, meth:`.Player.endOfGame()` of player1 and player2 is called - if wanted, the result is printed.
         """
         # prepares all the instances (board etc) for a new game
         self.reset()
@@ -103,7 +105,7 @@ class Game:
         """ Resets the game for a new game
 
         Resets turn, movements, sates, winner, next and last player
-        Calls boardAR.reset()
+        Calls ``boardAR.reset()``
         """
         self.player1.order = 1
         self.player2.order = 2
@@ -111,6 +113,3 @@ class Game:
         self.movements = []
         self.states = []
         self.boardAR.reset()
-
-
-

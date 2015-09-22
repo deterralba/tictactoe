@@ -78,7 +78,6 @@ class BoardState:
         ------
         BoardState
             A new identical copy of BoardState (useful for storage)
-
         """
         copyBS = BoardState()
         copyBS.state = [[self.state[i][j] for j in range(3)] for i in range(3)]

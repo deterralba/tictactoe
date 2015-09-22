@@ -1,6 +1,7 @@
 
 
 class PlayerStatistic:
+    # TODO: add comments here
     def __init__(self, player):
         self.player = player
         self.numberOfVictories = 0
